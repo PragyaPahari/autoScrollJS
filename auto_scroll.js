@@ -6,7 +6,27 @@ var height=docHeight-cliHeight;
 
 var scrolldelay;
 
-pageScroll();
+var tgl=false;
+
+document.addEventListener("keypress", function(event) {
+	if (event.keyCode == 13) {
+		if(tgl==false){	
+                        console.log('enter pressed, toggle false');
+			stopScroll();
+			tgl=true;
+		}
+		else{
+			console.log('enter pressed, toggle true');
+                        pageScroll();
+			tgl=false;
+		}
+  	}
+});
+
+
+window.addEventListener('load', (event) => {
+        pageScroll();
+});
 
 function pageScroll() { 
         if (window.pageYOffset<height)
